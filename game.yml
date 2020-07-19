@@ -1,0 +1,35 @@
+---
+custommaps:
+  - name: "KF-HorzineArena-B2"
+    steamworksids:
+      - 2009462799
+  - name: "KF-NachtDerUntoten_TraderPod"
+    steamworksids:
+      - 1551913612
+  - name: "KF-Mario_64_Remastered"
+    steamworksids:
+      - 840754106
+  - name: "KF-KillingPool"
+    steamworksids:
+      - 1210703659
+  - name: "KF-LavaCastle"
+    steamworks:
+      - 1755617843
+  - name: "KF-Gluttony"
+    steamworksids:
+      - 1368143986
+  - name: "KF-KF1-Aperture"
+    steamworksids:
+      - 1868278305
+  - name: "KF-DeepingWall"
+    steamworksids:
+      - 1130264785
+  - name: "KF-Antize-RE2_RPD"
+    steamworksids:
+      - 661714861
+  - name: "KF-Aphrodite"
+    steamworksids:
+      - 785576438
+  - name: "KF-Deadline"
+    steamworksids:
+      - 652062696
