@@ -13,4 +13,6 @@ if [[ $1 = "update" ]]; then
 fi
 require_config
 load_config
-launch
+if [[ $TEST -ne 1 ]]; then
+  launch
+fi
