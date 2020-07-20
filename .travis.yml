@@ -1,0 +1,8 @@
+language: ruby
+services:
+  - docker
+
+before_install:
+  - docker build -t kf2 .
+  - export TEST=true
+  - docker-compose up -f docker-public.yml
