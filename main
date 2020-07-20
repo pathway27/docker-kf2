@@ -15,4 +15,6 @@ require_config
 load_config
 if [[ $TEST -ne 1 ]]; then
   launch
+else
+  exit 0
 fi
