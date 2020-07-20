@@ -21,7 +21,7 @@ ServerSubscribedWorkshopItems=<%= id %><% end %><% end %>}
     return ERB.new(template).result(binding)
   end
 
-  def renderMapCycles()
+  def renderMapCycle()
     mapnames = []
     for map in @maps do
       #Add all maps to mapcycle except the KF-Default map. This is not playable.
