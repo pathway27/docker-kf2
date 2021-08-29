@@ -2,10 +2,10 @@ version: '2'
 
 services:
     kf2:
+        build: .
         container_name: kf2
-        image: dwurf/docker-kf2:latest
         # Uncomment this to skip auto-update
-        command: update validate
+        #command: update validate
         #command: update -beta preview validate
         restart: always
         ports:
