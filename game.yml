@@ -1,0 +1,47 @@
+custommaps:
+  - name: KF-NachtDerUntoten_TraderPod
+    steamworksids:
+      - 1551913612
+  - name: KF-KillZone
+    steamworksids:
+      - 828888529
+  - name: KF-Verticality
+    steamworksids:
+      - 964100068
+  - name: KF-HuskDodgeBall
+    steamworksids:
+      - 843462650
+  - name: KF-BridgeHoldout
+    steamworksids:
+      - 1343393833
+  - name: KF-DD-TowerSiege
+    steamworksids:
+      - 904881341
+  - name: KF-Minecraft_Defense_Day_Fixed
+    steamworksids:
+      - 1098009749
+  - name: KF-Deadline
+    steamworksids:
+      - 652062696
+  - name: KF-BridgePoint
+    steamworksids:
+      - 1207425805
+  - name: KF-CSGO_Assault
+    steamworksids:
+      - 943093883
+  - name: KF-HorzineArena-B1-v5
+    steamworksids:
+      - 711621345
+  - name: KF-LastStand
+    steamworksids:
+      - 791238358
+
+  - name: KF-BioticsLabUK
+    steamworksids:
+      - 655974683
+  - name: KF-KF1_Manor
+    steamworksids:
+      - 682290186
+  - name: KF-KF1_West_London
+    steamworksids:
+      - 733191110
