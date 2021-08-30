@@ -22,6 +22,14 @@ To allow an IPv4 address to be shared with containers on a RHEL host, you need t
 With docker `-v` mounts you can add `:z` to the end of the mount argument to add the relevant SELinux contexts to use the bind mount automatically. For example `-v $HOME/kf2:/home/steam/kf2server` becomes `-v $HOME/kf2:/home/steam/kf2server:z`.
 
 
+Compose Quickstart
+------------------
+
+```
+mkdir -p {kf2_steamdir,kf2server}
+docker-compose -f docker-compose-public.yml up -d
+```
+
 Simple start
 ------------
 
