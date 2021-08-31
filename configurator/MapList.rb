@@ -5,7 +5,6 @@ class MapList
     @default_maps = default_maps.map{|m| Map.new(m)}
     @custom_maps = custom_maps.map{|m| Map.new(m)}
     @maps = @default_maps + @custom_maps
-    binding.irb
   end
 
   def renderSteamworksIds
