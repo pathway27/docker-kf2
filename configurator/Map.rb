@@ -1,5 +1,5 @@
 class Map
-  attr_accessor :steamworksids,:name,:mapfilename,:screenshot, :partial
+  attr_accessor :steamworksids, :name, :mapfilename, :screenshot, :partial
 
   def initialize(maphash)
     @name = maphash["name"] #The human-recognisable map name

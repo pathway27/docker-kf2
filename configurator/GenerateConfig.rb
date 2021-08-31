@@ -1,27 +1,40 @@
 require 'erb'
 require 'yaml'
 
-require './Game.rb'
 require './Map.rb'
 require './MapList.rb'
 
-#Generate map list
-#Get the official map list then add any custom ones to the end of the array
-gameconfig = YAML.load(IO.read("/home/steam/game.yml"))
-maplist = YAML.load_file("DefaultMaps.yml")
-if gameconfig.key?("custommaps")
-  if gameconfig["custommaps"] != []
-    puts "Found #{gameconfig["custommaps"].length} custom map configs"
-    maplist.concat(gameconfig["custommaps"])
+class KFConfig
+  KF_CONFIG_PREFIX = "#{ENV['HOME']}/kf2server/KFGame/Config/"
+  #KF_CONFIG_PREFIX = "./LinuxServer-"
+  KF_GAME	   = "LinuxServer-KFGame.ini"
+  KF_ENGINE	   = "LinuxServer-KFEngine.ini"
+
+  def initialize
+    # Get the official map list then add any custom ones to the end of the array
+    #@custom_maps = YAML.load_file "/home/steam/game.yml"
+    @custom_maps = YAML.load_file "../game.yml"
+    # TODO: Use folders in kf2server/KFGame/BrewedPC/Maps
+    @default_maps = YAML.load_file "DefaultMaps.yml"
+    puts "Found #{@custom_maps["custommaps"].length} custom map configs"
+
+    @maplist = MapList.new(default_maps: @default_maps, custom_maps: @custom_maps["custommaps"])
+  end
+
+  def generate
+    IO.write("#{KF_CONFIG_PREFIX}#{KF_GAME}", renderConfig(KF_GAME))
+    puts "KFCONFIG: Wrote #{KF_CONFIG_PREFIX}#{KF_GAME} Successfully!"
+    IO.write("#{KF_CONFIG_PREFIX}#{KF_ENGINE}", renderConfig(KF_ENGINE))
+    puts "KFCONFIG: Wrote #{KF_CONFIG_PREFIX}#{KF_ENGINE} Successfully!"
+    puts "KFCONFIG: Wrote Server Config Successfully!"
+  end
+
+  private
+
+  def renderConfig(filename)
+    template = File.read "#{filename}.erb"
+    ERB.new(template).result_with_hash(maplist: @maplist)
   end
 end
 
-gamehash = {
-"maplist" => maplist
-}
-
-game = Game.new(gamehash)
-
-IO.write("#{ENV['HOME']}/kf2server/KFGame/Config/LinuxServer-KFGame.ini",game.renderGameConfig())
-IO.write("#{ENV['HOME']}/kf2server/KFGame/Config/LinuxServer-KFEngine.ini",game.renderEngineConfig())
-puts "Wrote Server Config Successfully!"
+KFConfig.new.generate

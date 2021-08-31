@@ -29,11 +29,19 @@
   playableInWeekly: false
   playableInVsSurvival: false
   playableInObjective: false
+- name: KF-DieSector
+  playableInObjective: false
+- name: KF-Dystopia2029
+  playableInObjective: false
+- name: KF-Elysium
+  playableInObjective: false
 - name: KF-EvacuationPoint
   mapAssociation: 2
   playableInObjective: false
 - name: KF-Farmhouse
   mapAssociation: 2
+  playableInObjective: false
+- name: KF-HellmarkStation
   playableInObjective: false
 - name: KF-HostileGrounds
   playableInObjective: false
@@ -43,9 +51,13 @@
   playableInObjective: false
 - name: KF-Lockdown
   playableInObjective: false
+- name: KF-Manor
+  playableInObjective: false
 - name: KF-MonsterBall
   mapAssociation: 2
   platableInObjective: false
+- name: KF-Moonbase
+  playableInObjective: false
 - name: KF-Nightmare
   mapAssociation: 2
   playableInVsSurvival: false
@@ -79,9 +91,6 @@
   playableInVsSurvival: false
   playableInEndless: false
 - name: KF-TragicKingdom
-  mapAssociation: 2
-  playableInObjective: false
-- name: KF-VolterManor
   mapAssociation: 2
   playableInObjective: false
 - name: KF-ZedLanding

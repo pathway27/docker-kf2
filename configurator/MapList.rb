@@ -1,37 +1,40 @@
 class MapList
-  
-  attr_accessor :maps
+  attr_accessor :default_maps, :custom_maps, :maps
 
-  def initialize(maparray)
-    @maps = maparray.map do |item|
-      Map.new(item)
-    end
+  def initialize(default_maps: [], custom_maps: [])
+    @default_maps = default_maps.map{|m| Map.new(m)}
+    @custom_maps = custom_maps.map{|m| Map.new(m)}
+    @maps = @default_maps + @custom_maps
+    binding.irb
   end
 
-  def renderSteamworksIds()
-    template = %{[OnlineSubsystemSteamworks.KFWorkshopSteamworks]<% for map in @maps %><% for id in map.steamworksids %>
+  def renderSteamworksIds
+    template = %{[OnlineSubsystemSteamworks.KFWorkshopSteamworks]<% for map in maps %><% for id in map.steamworksids %>
 ServerSubscribedWorkshopItems=<%= id %><% end %><% end %>}
-    return ERB.new(template).result(binding)
+    return ERB.new(template).result_with_hash(maps: @maps)
   end
 
-  def renderSummaries()
+  def renderSummaries
     template = %{
-<% for map in @maps %><%= map.renderSummary %><% end %>
+<% for map in maps %><%= map.renderSummary %><% end %>
     }
-    return ERB.new(template).result(binding)
+    return ERB.new(template).result_with_hash(maps: @maps)
   end
 
-  def renderMapCycles()
-    mapnames = []
-    for map in @maps do
-      #Add all maps to mapcycle except the KF-Default map. This is not playable.
-      if map.name != "KF-Default"
-        mapnames.push("\"" + map.name + "\"")
-      end
-    end
+  def renderMapCycles(maps = @maps)
     template = %{
-GameMapCycles=(Maps=(<%= mapnames.join(",") %>))
+GameMapCycles=(Maps=(<%= all_map_names.join(",") %>))
     }
-    return ERB.new(template).result(binding)
+    return ERB.new(template).result_with_hash(
+	all_map_names: maps.map{|m| "\"#{m.name}\""}
+    )
+  end
+
+  private
+
+  def map_names(m)
+    mapnames = m.reject{|m| m.name == "KF-Default" }.map{|m| "\"#{m.name}\""}
+    puts "MapList: #{mapnames}"
+    return mapnames
   end
 end

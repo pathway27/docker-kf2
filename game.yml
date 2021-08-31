@@ -45,3 +45,32 @@ custommaps:
   - name: KF-KF1_West_London
     steamworksids:
       - 733191110
+
+  - name: KF-DeepingWall
+    steamworksids:
+      - 2442325202
+  - name: KF-Walkways
+    steamworksids:
+      - 850316856
+  - name: KF-TrapLandAlter
+    steamworksids:
+      - 1774649072
+  - name: KF-Arid_Zedlands
+    steamworksids:
+      - 1285074158
+  - name: KF-Cliffside
+    steamworksids:
+      - 232090
+  - name: KF-Hold_The_Door
+    steamworksids:
+      - 1850805392
+  - name: KF-Hans
+    steamworksids:
+      - 2434994910
+  - name: KF-ToiletMap
+    steamworksids:
+      - 1681801783
+  - name: KF-Cuboid-v3
+    steamworksids:
+      - 1644209565
+  
