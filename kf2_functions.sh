@@ -113,6 +113,9 @@ function load_config() {
     #default server message
     [[ -z "$KF_MOTD" ]] && export KF_MOTD="Welcome to our server. \n \n Have fun and good luck!"
 
+    # default clan motto
+    [[ -z "$KF_CLAN_MOTTO" ]] && export KF_CLAN_MOTTO="Clan Motto"
+
     #default to killingfloor2.com
     [[ -z "$KF_WEBSITE_LINK" ]] && export KF_WEBSITE_LINK="http://killingfloor2.com/"
 
@@ -128,6 +131,7 @@ function load_config() {
     fi
     sed -i "s/^DownloadManagers=IpDrv.HTTPDownload/DownloadManagers=OnlineSubsystemSteamworks.SteamWorkshopDownload/" "${HOME}/kf2server/KFGame/Config/LinuxServer-KFEngine.ini"
     sed -i "s/^BannerLink=.*/BannerLink=${KF_BANNER_LINK}/" "${HOME}/kf2server/KFGame/Config/LinuxServer-KFGame.ini"
+    sed -i "s/^ClanMotto=.*/ClanMotto=${KF_CLAN_MOTTO}/" "${HOME}/kf2server/KFGame/Config/LinuxServer-KFGame.ini"
     sed -i "s/^ServerMOTD=.*/ServerMOTD=${KF_MOTD}/" "${HOME}/kf2server/KFGame/Config/LinuxServer-KFGame.ini"
     sed -i "s/^WebsiteLink=.*/WebsiteLink=${KF_WEBSITE_LINK}/" "${HOME}/kf2server/KFGame/Config/LinuxServer-KFGame.ini"
 
@@ -138,7 +142,11 @@ function launch() {
     local cmd
 
     cmd="${HOME}/kf2server/Binaries/Win64/KFGameSteamServer.bin.x86_64 "
-    cmd+="$KF_MAP?Game=KFGameContent.KFGameInfo_$KF_GAME_MODE"
+    if [[ -z "$ZKF_ZEDTERNAL_REBORN" ]]; then
+      cmd+="$KF_MAP?Game=ZedternalReborn.WMGameInfo_Endless"
+    else
+      cmd+="$KF_MAP?Game=KFGameContent.KFGameInfo_$KF_GAME_MODE"
+    fi
     cmd+="?Difficulty=$KF_DIFFICULTY"
     cmd+="?AdminPassword=$KF_ADMIN_PASS"
     [[ -z "$MULTIHOME_IP" ]] || cmd+="?Multihome=${MULTIHOME_IP}"

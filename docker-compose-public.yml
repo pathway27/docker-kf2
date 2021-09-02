@@ -14,10 +14,12 @@ services:
             - 0.0.0.0:7777:7777/udp
             - 8080
         environment:
-            - KF_BANNER_LINK="http:\/\/art.tripwirecdn.com\/TestItemIcons\/MOTDServer.png"
-            - KF_DIFFICULTY=1
-            - KF_GAME_LENGTH=1
-            - KF_SERVER_NAME="APCS LADZ Public Server"
+            - KF_BANNER_LINK=http:\/\/art.tripwirecdn.com\/TestItemIcons\/MOTDServer.png
+            - KF_CLAN_MOTTO="APCS CLAN"
+            - KF_DIFFICULTY=3
+            - KF_ZEDTERNAL_REBORN=1
+            - KF_GAME_LENGTH=0
+            - KF_SERVER_NAME="APCS LADZ Public SG Server"
             - KF_MAP=KF-ZedLanding
             - KF_QUERY_PORT=27015
             - KF_PORT=7777
