@@ -49,7 +49,7 @@ function update() {
 function require_config() {
   
     # Generate INI files
-    if [[ ! -f "${HOME}/kf2server/KFGame/Config/PCServer-KFGame.ini" ]]; then
+    if [[ ! -f "${HOME}/kf2server/KFGame/Config/LinuxServer-KFGame.ini" ]]; then
         "${HOME}/kf2server/Binaries/Win64/KFGameSteamServer.bin.x86_64" kf-bioticslab?difficulty=0?adminpassword=secret?gamepassword=secret -port=7777 &
         sleep 20
         kfpid=$(pgrep -f port=7777)
@@ -141,9 +141,10 @@ function launch() {
     export WINEDEBUG=fixme-all
     local cmd
 
+    echo "Launching..."
     cmd="${HOME}/kf2server/Binaries/Win64/KFGameSteamServer.bin.x86_64 "
-    if [[ -z "$ZKF_ZEDTERNAL_REBORN" ]]; then
-      cmd+="$KF_MAP?Game=ZedternalReborn.WMGameInfo_Endless"
+    if [[ ! -z $KF_ZEDTERNAL_REBORN ]]; then
+      cmd+="$KF_MAP?Game=ZedternalReborn.$KF_ZEDTERNAL_REBORN"
     else
       cmd+="$KF_MAP?Game=KFGameContent.KFGameInfo_$KF_GAME_MODE"
     fi

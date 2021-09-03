@@ -105,7 +105,7 @@ Variables
 | `KF_CLAN_MOTTO`             | `Clan Motto` | A subtilte message to show under the banner image on the welcome page. |
 | `KF_WEBSITE_LINK` | `http:\/\/killingfloor2.com` | A website link shown at the bottom of the srver welcome page to allow the visitor to go to your site. You must escape special characters. |
 | `MULTIHOME_IP` | `''` | Sets the IP to run the server on in cases where it has been assigned multiple public IPs. |
-| `ZKF_ZEDTERNAL_REBORN` | `''` | Run the custom game mode, see [here](https://steamcommunity.com/sharedfiles/filedetails/?id=2058869377)  |
+| `KF_ZEDTERNAL_REBORN` | `WMGameInfo_Endless` or `WMGameInfo_Endless_AllWeapons` | Run the custom game mode, see [here](https://steamcommunity.com/sharedfiles/filedetails/?id=2058869377)  |
 
 **NOTE:** Special characters are anything that `sed` considers special, so /, ^, \, * etc. To escape the character, prepend \ before it as in the examples provided in the compose files and above.
 

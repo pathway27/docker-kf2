@@ -16,18 +16,18 @@ services:
         environment:
             - KF_BANNER_LINK=http:\/\/art.tripwirecdn.com\/TestItemIcons\/MOTDServer.png
             - KF_CLAN_MOTTO="APCS CLAN"
-            - KF_DIFFICULTY=3
-            - KF_ZEDTERNAL_REBORN=1
+            - KF_DIFFICULTY=2
+            - KF_ZEDTERNAL_REBORN=WMGameInfo_Endless
             - KF_GAME_LENGTH=0
-            - KF_SERVER_NAME="APCS LADZ Public SG Server"
-            - KF_MAP=KF-ZedLanding
+            - KF_SERVER_NAME="APCS LADZ Public SG Server - Zedternal Reborn"
+            - KF_MAP=KF-Cuboid-v3
             - KF_QUERY_PORT=27015
             - KF_PORT=7777
             - KF_ENABLE_WEB=true
             - KF_ADMIN_PASS=secret
             - KF_WEBADMIN_PORT=8080
-            - KF_MOTD="SUP APCS LADZ!"
-            - KF_WEBSITE_LINK="https:\/\/killingfloor2.com\/"
+            - KF_MOTD="SUP APCS LADZ! \\\\n \\\\n Welcome to Singapore! \\\\n Consider donating with the paypal link below to support server costs."
+            - KF_WEBSITE_LINK="https:\/\/www.paypal.com\/paypalme\/pathway27"
         volumes:
             - ./kf2server/:/home/steam/kf2server
             - ./kf2_steamdir/:/home/steam/steam
