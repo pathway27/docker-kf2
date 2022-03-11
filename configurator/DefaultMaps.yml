@@ -63,6 +63,7 @@
   playableInVsSurvival: false
   playableInEndless: false
 - name: KF-Nuked
+- name: KF-Netherhold
 - name: KF-Outpost
   mapAssociation: 2
 - name: KF-PowerCore_Holdout
